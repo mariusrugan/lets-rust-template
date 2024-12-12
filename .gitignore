@@ -6,6 +6,5 @@ Thumbs.db
 .private
 .bin
 
-# Added by cargo
-
+# Rust
 /target

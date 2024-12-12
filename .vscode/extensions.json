@@ -2,6 +2,7 @@
     "recommendations": [
         "EditorConfig.editorconfig",
         "ms-vscode-remote.remote-containers",
-        "mikestead.dotenv"
+        "mikestead.dotenv",
+        "vadimcn.vscode-lldb"
     ]
 }

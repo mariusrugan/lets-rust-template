@@ -1,20 +1,20 @@
 {
   "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
-  
+
   //
-  "name": "lets-rust-template",
-  
+  "name": "lets-rust",
+
   //
-  "image": "lukemathwalker/cargo-chef:latest-rust-1",
-  
+  "image": "rust:1.83-bullseye",
+
   //
-  "initializeCommand": "docker pull lukemathwalker/cargo-chef:latest-rust-1",
-  
+  "initializeCommand": "docker pull rust:1.83-bullseye",
+
   //
   "postCreateCommand": {
     "setup": "bash ${containerWorkspaceFolder}/.devcontainer/postCreateCommand.sh"
   },
-  
+
   //
   "postStartCommand": {
     "git": "git config --global --add safe.directory ${containerWorkspaceFolder}"

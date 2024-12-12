@@ -1,6 +1,7 @@
 [package]
-name = "lets-rust-template"
+name = "lets-rust"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+xgboost = "0.1.4"
