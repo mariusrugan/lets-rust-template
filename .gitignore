@@ -1,0 +1,11 @@
+# Trash
+.DS_Store
+Thumbs.db
+
+# Private
+.private
+.bin
+
+# Added by cargo
+
+/target
