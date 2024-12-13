@@ -11,9 +11,10 @@ on:
   release:
     types: [published]
 
-permissions:
-  id-token: write
-  contents: write
+# permissions:
+#   id-token: write
+#   contents: write
+#   packages: write
 
 env:
   REGISTRY: ghcr.io
@@ -33,11 +34,11 @@ jobs:
           # - linux/arm64
 
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-      attestations: write
-      id-token: write
+    # permissions:
+    #   contents: read
+    #   packages: write
+    #   attestations: write
+    #   id-token: write
 
     steps:
       - name: Prepare
