@@ -1,6 +1,6 @@
 ---
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
-name: build-image
+name: Formatting
 
 permissions:
   contents: read
@@ -10,10 +10,8 @@ on:
     branches: ["main"]
 
   workflow_dispatch:
-    inputs:
-      tags:
-        description: "Tags for the image"
-        required: false
+  
+  pull_request:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
