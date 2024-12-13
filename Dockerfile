@@ -1,5 +1,5 @@
 #
-# Builder stage
+# Chef stage
 #
 FROM lukemathwalker/cargo-chef:latest-rust-1 AS chef
 
@@ -8,7 +8,7 @@ WORKDIR /app/
 RUN apt update && apt install lld clang -y
 
 #
-# Planner
+# Planner stage
 #
 FROM chef AS planner
 
@@ -17,7 +17,7 @@ COPY . .
 RUN cargo chef prepare --recipe-path recipe.json
 
 #
-# Builder
+# Builder stage
 #
 FROM chef AS builder
 
@@ -30,7 +30,7 @@ COPY . .
 RUN cargo build --release --bin lets-rust
 
 #
-# Runtime
+# Runtime stage
 #
 FROM debian:bookworm-slim AS runtime
 
