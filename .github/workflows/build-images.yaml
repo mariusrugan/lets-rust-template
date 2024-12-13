@@ -116,8 +116,6 @@ jobs:
             org.opencontainers.image.description=lets-rust-template
             org.opencontainers.image.licenses=MIT
             org.opencontainers.image.source=https://github.com/mariusrugan/lets-rust-template
-          env:
-            DOCKER_METADATA_ANNOTATIONS_LEVELS: manifest,index
 
       - name: Log in to the Container registry
         # uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
