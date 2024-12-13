@@ -5,7 +5,9 @@ FROM lukemathwalker/cargo-chef:latest-rust-1 AS chef
 
 WORKDIR /app/
 
-RUN apt update && apt install lld clang xgboost libclang-dev -y
+RUN apt update && \
+    apt install -y pkg-config libssl-dev xgboost lld clang libclang-dev && \
+    rm -rf /var/lib/apt/lists/*
 
 #
 # Planner stage
@@ -38,7 +40,6 @@ WORKDIR /app
 
 RUN apt-get update -y \
     && apt-get install -y --no-install-recommends openssl ca-certificates \
-    # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/* 
