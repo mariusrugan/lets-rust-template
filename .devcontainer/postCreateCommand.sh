@@ -13,3 +13,5 @@ apt-get update -y && apt-get install -y --no-install-recommends \
 
 
 export LIBCLANG_PATH=/usr/lib/llvm-11/lib
+
+rustup component add rustfmt
