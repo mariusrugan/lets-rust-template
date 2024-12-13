@@ -18,5 +18,16 @@
   //
   "postStartCommand": {
     "git": "git config --global --add safe.directory ${containerWorkspaceFolder}"
+  },
+
+  //
+  "customizations": {
+    "vscode": {
+        "settings": {},
+        "extensions": [
+            "mkhl.direnv",
+            "rust-lang.rust-analyzer"
+        ]
+    }
   }
 }
