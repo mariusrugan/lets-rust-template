@@ -34,23 +34,23 @@ jobs:
   # Inspired from:
   # https://github.com/juspay/hyperswitch/blob/main/.github/workflows/CI-push.yml
   #
-  # formatting:
-  #   name: Formatting checks
-  #   runs-on: ubuntu-latest
+  formatting:
+    name: Formatting checks
+    runs-on: ubuntu-latest
     
-  #   steps:
-  #   - name: Checkout
-  #     uses: actions/checkout@v4
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
 
-  #   - name: Install Rust
-  #     uses: dtolnay/rust-toolchain@master
-  #     with:
-  #       toolchain: nightly
-  #       components: rustfmt
+    - name: Install Rust
+      uses: dtolnay/rust-toolchain@master
+      with:
+        toolchain: nightly
+        components: rustfmt
 
-  #   - name: Check formatting
-  #     shell: bash
-  #     run: cargo +nightly fmt --all --check
+    - name: Check formatting
+      shell: bash
+      run: cargo +nightly fmt --all --check
 
   #
   # Inspired from:
