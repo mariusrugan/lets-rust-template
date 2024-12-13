@@ -141,7 +141,7 @@ jobs:
         with:
           context: .
           platforms: ${{ matrix.platform }}
-          file: docker/service.Dockerfile
+          file: ./Dockerfile
           labels: ${{ steps.meta.outputs.labels }}
           outputs: type=image,name=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }},push-by-digest=true,name-canonical=true,push=true
 
