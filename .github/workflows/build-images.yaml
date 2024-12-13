@@ -13,7 +13,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: mariusrugan/lets-rust
+  IMAGE_NAME: mariusrugan/lets-rust-template
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
