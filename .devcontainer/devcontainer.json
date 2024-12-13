@@ -25,8 +25,9 @@
     "vscode": {
         "settings": {},
         "extensions": [
-            "mkhl.direnv",
-            "rust-lang.rust-analyzer"
+          "mkhl.direnv",
+          "rust-lang.rust-analyzer",
+          "tamasfe.even-better-toml"
         ]
     }
   }
