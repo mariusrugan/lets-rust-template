@@ -8,9 +8,6 @@ permissions:
 on:
   push:
     branches: ["main"]
-    paths:
-      - .github/workflows/build-image.yaml
-      - Dockerfile
 
   workflow_dispatch:
     inputs:
@@ -25,10 +22,6 @@ concurrency:
 defaults:
   run:
     shell: bash
-
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: mariusrugan/lets-rust
 
 jobs:
   #
