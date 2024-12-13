@@ -1,0 +1,54 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: build-image
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - .github/workflows/build-image.yaml
+      - Dockerfile
+
+  workflow_dispatch:
+    inputs:
+      tags:
+        description: "Tags for the image"
+        required: false
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: mariusrugan/lets-rust
+
+jobs:
+  #
+  # Inspired from:
+  # https://github.com/juspay/hyperswitch/blob/main/.github/workflows/CI-push.yml
+  #
+  formatting:
+    name: Formatting checks
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Install Rust
+      uses: dtolnay/rust-toolchain@master
+      with:
+        toolchain: nightly
+        components: rustfmt
+
+    - name: Check formatting
+      shell: bash
+      run: cargo +nightly fmt --all --check
