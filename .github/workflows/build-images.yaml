@@ -11,6 +11,10 @@ on:
   release:
     types: [published]
 
+permissions:
+  id-token: write
+  contents: write
+
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: mariusrugan/lets-rust-template
@@ -22,7 +26,7 @@ concurrency:
 jobs:
   build-images:
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         platform:
           - linux/amd64
@@ -112,6 +116,12 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=schedule
+            type=ref,event=branch
+            type=ref,event=tag
+            type=ref,event=pr
+            type=sha,format=long
           annotations: |
             org.opencontainers.image.description=lets-rust-template
             org.opencontainers.image.licenses=MIT
